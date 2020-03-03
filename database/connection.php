@@ -8,8 +8,7 @@ $dsn = "pgsql:dbname={$database};host={$host}";
 
 try {
   $connection = new PDO($dsn, $user, $password);
-  var_dump($connection);
-  die;
+  // var_dump($connection);
 } catch (\EXCEPTION $e) {
   echo $e->getMessage();
 }

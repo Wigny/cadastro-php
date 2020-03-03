@@ -1,21 +1,7 @@
 <?php
-include_once("pessoa.php");
+include("./listar_pessoas.php");
 
 $titulo = "Hello World!";
-
-$pessoa1 = new Pessoa("João", "teixeira@email.com");
-$pessoa2 = new Pessoa("Lucas", "racki@email.com");
-$pessoa3 = new Pessoa("Pedro", "lucas@email.com");
-
-$nomes_obj = [$pessoa1, $pessoa2, $pessoa3];
-
-if ($_POST) {
-
-  $pessoa4 = new Pessoa();
-  $pessoa4->receiveData($_POST);
-
-  $nomes_obj[] = $pessoa4;
-}
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +28,10 @@ if ($_POST) {
       <a href="/cadastro.php" class="btn btn-success">Cadastrar contato</a>
     </div>
 
-    <h3>Lista de pessoas Objeto</h3>
+    <h3>Pessoas:</h3>
     <ul>
-      <?php foreach ($nomes_obj as $obj) : ?>
-        <li> <?php echo $obj->getNome() ?> </li>
+      <?php foreach ($pessoas as $pessoa) : ?>
+        <li> <?php echo $pessoa->nome ?> - <?php echo $pessoa->email ?></li>
       <?php endforeach ?>
     </ul>
 
