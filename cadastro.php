@@ -15,19 +15,19 @@
       <h2>Cadastro de pessoa</h2>
     </div>
 
-    <form action="index.php" method="post">
+    <form action="cadastro_salvar.php" method="post">
       <div class="row">
         <div class="col">
           <label for="">Nome</label>
-          <input type="text" class="form-control" name="nome">
+          <input type="text" class="form-control" name="nome" required>
         </div>
         <div class="col">
           <label for="">E-mail</label>
-          <input type="text" class="form-control" name="sobrenome">
+          <input type="text" class="form-control" name="email" required>
         </div>
         <div class="col">
           <label for="">Telefone</label>
-          <input type="text" class="form-control" name="fone" data-mask="(99) 99999-9999">
+          <input type="text" class="form-control" name="fone" data-mask="(99) 99999-9999" required>
         </div>
       </div>
       <div class="row mt-3">

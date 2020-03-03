@@ -1,11 +1,11 @@
 <?php
-include_once("Pessoa.php");
+include_once("pessoa.php");
 
 $titulo = "Hello World!";
 
-$pessoa1 = new Pessoa("João", "Teixeira");
-$pessoa2 = new Pessoa("Lucas", "Racki");
-$pessoa3 = new Pessoa("Pedro", "Lucas");
+$pessoa1 = new Pessoa("João", "teixeira@email.com");
+$pessoa2 = new Pessoa("Lucas", "racki@email.com");
+$pessoa3 = new Pessoa("Pedro", "lucas@email.com");
 
 $nomes_obj = [$pessoa1, $pessoa2, $pessoa3];
 
@@ -19,7 +19,7 @@ if ($_POST) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -31,9 +31,6 @@ if ($_POST) {
 
 <body>
   <div class="container">
-
-    <a href="/cadastro.php" class="btn btn-secondary">Cadastrar contato</a>
-
     <h1 class="text-center">
       <?= $titulo ?>
       <small>
@@ -41,10 +38,14 @@ if ($_POST) {
       </small>
     </h1>
 
+    <div class="text-center">
+      <a href="/cadastro.php" class="btn btn-success">Cadastrar contato</a>
+    </div>
+
     <h3>Lista de pessoas Objeto</h3>
     <ul>
       <?php foreach ($nomes_obj as $obj) : ?>
-        <li> <?php echo $obj->getNomeCompleto() ?> </li>
+        <li> <?php echo $obj->getNome() ?> </li>
       <?php endforeach ?>
     </ul>
 
