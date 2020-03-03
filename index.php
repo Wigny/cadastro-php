@@ -38,6 +38,7 @@ $titulo = "Hello World!";
           <th scope="col">Nome</th>
           <th scope="col">Email</th>
           <th scope="col">Telefone</th>
+          <th scope="col"> </th>
         </tr>
       </thead>
       <tbody>
@@ -47,13 +48,28 @@ $titulo = "Hello World!";
             <td> <?php echo $pessoa->nome ?></td>
             <td> <?php echo $pessoa->email ?></td>
             <td> <?php echo $pessoa->fone ?></td>
+            <td><button type="button" class="btn btn-outline-danger">Remover</button> </td>
           <?php endforeach ?>
+          </tr>
+
+          <tr>
+            <form action="cadastro_salvar.php" method="post">
+              <td></td>
+              <td> <input type="text" name="nome" class="form-control" /> </td>
+              <td> <input type="mail" name="email" class="form-control" /> </td>
+              <td> <input type="text" name="fone" class="form-control" data-mask="(99) 99999-9999" /> </td>
+              <td><button type="submit" class="btn btn-outline-success">Adicionar</button> </td>
+            </form>
           </tr>
 
       </tbody>
     </table>
 
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
 </body>
 
 </html>
