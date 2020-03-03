@@ -29,11 +29,29 @@ $titulo = "Hello World!";
     </div>
 
     <h3>Pessoas:</h3>
-    <ul>
-      <?php foreach ($pessoas as $pessoa) : ?>
-        <li> <?php echo $pessoa->nome ?> - <?php echo $pessoa->email ?></li>
-      <?php endforeach ?>
-    </ul>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($pessoas as $pessoa) : ?>
+          <tr>
+            <th scope="row"> <?php echo $pessoa->id ?></th>
+            <td> <?php echo $pessoa->nome ?></td>
+            <td> <?php echo $pessoa->email ?></td>
+            <td> <?php echo $pessoa->fone ?></td>
+          <?php endforeach ?>
+          </tr>
+
+      </tbody>
+    </table>
 
   </div>
 </body>

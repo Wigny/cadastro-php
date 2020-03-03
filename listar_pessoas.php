@@ -3,7 +3,7 @@
 include('./database/connection.php');
 include('./pessoa.php');
 
-$query = "select nome, email, fone from contatos";
+$query = "SELECT * FROM contatos";
 
 $select = $connection->prepare($query);
 $select->execute();
