@@ -17,7 +17,9 @@ if ($_POST) {
 
 	$result = $insert->execute();
 
-	var_dump($result);
+	echo ($result && $insert->rowCount()) ?
+		"O contato {$nome} foi salvo com sucesso" :
+		"Erro ao salvar contato";
 } else {
 	header('location: ./cadastro.php');
 }
