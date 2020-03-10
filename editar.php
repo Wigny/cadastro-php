@@ -1,5 +1,5 @@
 <?php
-include("./Pessoa.php");
+include("./crud/pessoa.php");
 include("./database/connection.php");
 
 if ($_GET && $_GET["id"]) {
@@ -41,8 +41,12 @@ if ($_GET && $_GET["id"]) {
     <?php endif ?>
 
     <?php if (!isset($erro)) : ?>
-      <form action="./cadastro_salvar.php" method="post">
+      <form action="./crud/salvar.php" method="post">
         <div class="row">
+          <div class="col">
+            <label for="">ID</label>
+            <input type="text" class="form-control" name="id" value="<?php echo $registro->id ?>" readonly>
+          </div>
           <div class="col">
             <label for="">Nome</label>
             <input type="text" class="form-control" name="nome" value="<?php echo $registro->nome ?>" required>
@@ -58,7 +62,6 @@ if ($_GET && $_GET["id"]) {
         </div>
         <div class="row mt-3">
           <div class="col">
-            <input type="hidden" name="id" value="<?php echo $registro->id ?>">
             <button class="btn btn-success btn-block" type="submit">Salvar</button>
           </div>
         </div>

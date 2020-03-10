@@ -1,5 +1,5 @@
 <?php
-include("./Pessoa.php");
+include("./crud/pessoa.php");
 include("./database/connection.php");
 
 $titulo = "Hello World!";
@@ -8,6 +8,7 @@ $pessoa = new Pessoa();
 $pessoas = $pessoa->buscarTodos($connection);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -31,7 +32,7 @@ $pessoas = $pessoa->buscarTodos($connection);
 
   <div class="container">
     <div class="text-center">
-      <a href="./cadastro.php" class="btn btn-success">Cadastrar contato</a>
+      <a href="./crud/cadastro.php" class="btn btn-success">Cadastrar contato</a>
     </div>
     <br>
 
@@ -53,12 +54,11 @@ $pessoas = $pessoa->buscarTodos($connection);
             <td><?php echo $pessoa->email ?></td>
             <td><?php echo $pessoa->fone ?></td>
             <td>
-              <a href="contato_editar.php?id=<?php echo $pessoa->id ?>">Atualizar</a>
+              <a href="./editar.php?id=<?php echo $pessoa->id ?>">Atualizar</a>
               <strong>|</strong>
-              <a href="contato_excluir.php?id=<?php echo $pessoa->id ?>">Excluir</a></td>
+              <a href="./excluir.php?id=<?php echo $pessoa->id ?>">Excluir</a></td>
             </td>
           </tr>
-
         <?php endforeach ?>
       </tbody>
     </table>

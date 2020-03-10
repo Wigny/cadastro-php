@@ -51,8 +51,7 @@ class Pessoa
 
     $select = $conn->prepare($query);
     $select->bindParam(":r_id", $id);
-
-    $result =  $select->execute();
+    $select->execute();
 
     if (!$select->rowCount()) {
       return false;

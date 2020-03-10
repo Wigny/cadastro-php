@@ -15,7 +15,7 @@
       <h2>Cadastro de pessoa</h2>
     </div>
 
-    <form action="./cadastro_salvar.php" method="post">
+    <form action="./crud/salvar.php" method="post">
       <div class="row">
         <div class="col">
           <label for="">Nome</label>
