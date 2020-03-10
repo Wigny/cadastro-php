@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
       <h2>Cadastro de pessoa</h2>
     </div>
 
-    <form action="cadastro_salvar.php" method="post">
+    <form action="./cadastro_salvar.php" method="post">
       <div class="row">
         <div class="col">
           <label for="">Nome</label>
@@ -23,7 +23,7 @@
         </div>
         <div class="col">
           <label for="">E-mail</label>
-          <input type="text" class="form-control" name="email" required>
+          <input type="email" class="form-control" name="email" required>
         </div>
         <div class="col">
           <label for="">Telefone</label>

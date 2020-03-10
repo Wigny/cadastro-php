@@ -1,11 +1,15 @@
 <?php
-include("./listar_pessoas.php");
+include("./Pessoa.php");
+include("./database/connection.php");
 
 $titulo = "Hello World!";
-?>
 
+$pessoa = new Pessoa();
+$pessoas = $pessoa->buscarTodos($connection);
+
+?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -16,60 +20,50 @@ $titulo = "Hello World!";
 </head>
 
 <body>
-  <div class="container">
+  <div class="jumbotron">
     <h1 class="text-center">
       <?= $titulo ?>
       <small>
         <?php echo date("d/m/Y H:i:s"); ?>
       </small>
     </h1>
+  </div>
 
+  <div class="container">
     <div class="text-center">
-      <a href="/cadastro.php" class="btn btn-success">Cadastrar contato</a>
+      <a href="./cadastro.php" class="btn btn-success">Cadastrar contato</a>
     </div>
-
-    <h3>Pessoas:</h3>
-
+    <br>
 
     <table class="table">
-      <thead>
+      <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">ID</th>
           <th scope="col">Nome</th>
-          <th scope="col">Email</th>
+          <th scope="col">E-mail</th>
           <th scope="col">Telefone</th>
-          <th scope="col"> </th>
+          <th scope="col">Ação</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($pessoas as $pessoa) : ?>
           <tr>
             <th scope="row"> <?php echo $pessoa->id ?></th>
-            <td> <?php echo $pessoa->nome ?></td>
-            <td> <?php echo $pessoa->email ?></td>
-            <td> <?php echo $pessoa->fone ?></td>
-            <td><button type="button" class="btn btn-outline-danger">Remover</button> </td>
-          <?php endforeach ?>
+            <td><?php echo $pessoa->nome ?></td>
+            <td><?php echo $pessoa->email ?></td>
+            <td><?php echo $pessoa->fone ?></td>
+            <td>
+              <a href="contato_editar.php?id=<?php echo $pessoa->id ?>">Atualizar</a>
+              <strong>|</strong>
+              <a href="contato_excluir.php?id=<?php echo $pessoa->id ?>">Excluir</a></td>
+            </td>
           </tr>
 
-          <tr>
-            <form action="cadastro_salvar.php" method="post">
-              <td></td>
-              <td> <input type="text" name="nome" class="form-control" /> </td>
-              <td> <input type="mail" name="email" class="form-control" /> </td>
-              <td> <input type="text" name="fone" class="form-control" data-mask="(99) 99999-9999" /> </td>
-              <td><button type="submit" class="btn btn-outline-success">Adicionar</button> </td>
-            </form>
-          </tr>
-
+        <?php endforeach ?>
       </tbody>
     </table>
 
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-
 </body>
 
 </html>
