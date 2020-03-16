@@ -10,13 +10,13 @@ if ($_GET && $_GET["id"]) {
     $erro = "O código [{$_GET["id"]}] não foi encontrado!";
   }
 } else {
-  $erro = "Erro de parâmetro!";
+  $erro = "Erro de parâmetros!";
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -41,7 +41,7 @@ if ($_GET && $_GET["id"]) {
     <?php endif ?>
 
     <?php if (!isset($erro)) : ?>
-      <form action="./crud/salvar.php" method="post">
+      <form action="./crud/editar.php" method="post">
         <div class="row">
           <div class="col">
             <label for="">ID</label>

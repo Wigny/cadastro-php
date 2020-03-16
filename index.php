@@ -10,7 +10,7 @@ $pessoas = $pessoa->buscarTodos($connection);
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">

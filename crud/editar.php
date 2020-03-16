@@ -19,7 +19,7 @@ if ($_POST) {
   $result = $update->execute();
 
   if ($result && $update->rowCount()) {
-    echo "O contato <b>{$nome}</b> foi alterado com sucesso!";
+    echo "O contato {$nome} foi alterado com sucesso!";
   } else {
     echo "Houve um erro ao atualizar o contato.";
   }
