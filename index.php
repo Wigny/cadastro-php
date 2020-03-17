@@ -21,18 +21,18 @@ $pessoas = $pessoa->buscarTodos($connection);
 </head>
 
 <body>
+
+
   <div class="jumbotron">
-    <h1 class="text-center">
-      <?= $titulo ?>
-      <small>
-        <?php echo date("d/m/Y H:i:s"); ?>
-      </small>
-    </h1>
+    <div class="text-center">
+      <h1> <?= $titulo ?> </h1>
+      <small> <?php echo date("d/m/Y H:i:s"); ?> </small>
+    </div>
   </div>
 
   <div class="container">
     <div class="text-center">
-      <a href="./crud/cadastro.php" class="btn btn-success">Cadastrar contato</a>
+      <a href="./cadastro.php" class="btn btn-success">Cadastrar contato</a>
     </div>
     <br>
 
@@ -54,9 +54,8 @@ $pessoas = $pessoa->buscarTodos($connection);
             <td><?php echo $pessoa->email ?></td>
             <td><?php echo $pessoa->fone ?></td>
             <td>
-              <a href="./editar.php?id=<?php echo $pessoa->id ?>">Atualizar</a>
-              <strong>|</strong>
-              <a href="./excluir.php?id=<?php echo $pessoa->id ?>">Excluir</a></td>
+              <a class="btn btn-success btn-outline" href="./editar.php?id=<?php echo $pessoa->id ?>">Atualizar</a>
+              <a class="btn btn-danger btn-outline" href="./excluir.php?id=<?php echo $pessoa->id ?>">Excluir</a></td>
             </td>
           </tr>
         <?php endforeach ?>

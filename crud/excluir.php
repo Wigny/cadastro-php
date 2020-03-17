@@ -4,24 +4,19 @@ include("./pessoa.php");
 
 if ($_POST) {
   $nome = $_POST["nome"];
-  $email = $_POST["email"];
-  $fone = $_POST["fone"];
   $id = $_POST["id"];
 
-  $query = "UPDATE contatos SET nome = :r_nome, email = :r_email, fone = :r_fone WHERE id = :r_id";
+  $query = "DELETE FROM contatos WHERE id = :r_id;";
 
   $update = $connection->prepare($query);
-  $update->bindParam(":r_nome", $nome);
-  $update->bindParam(":r_email", $email);
-  $update->bindParam(":r_fone", $fone);
   $update->bindParam(":r_id", $id);
 
   $result = $update->execute();
-  $editado = $result && $update->rowCount();
+
+  $excluido = $result && $update->rowCount();
 } else {
   header("location: ../cadastro.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +25,7 @@ if ($_POST) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edição</title>
+  <title>Exclusão</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
@@ -38,8 +33,8 @@ if ($_POST) {
 <body>
   <div class="jumbotron">
     <div class="text-center">
-      <h3>Edição de contato</h3>
-      <small> <?php echo $editado ? "O contato {$nome} foi alterado com sucesso!" : "Houve um erro ao atualizar o contato."; ?> </small>
+      <h3>Exclusão de contato</h3>
+      <small> <?php echo $excluido ? "O contato {$nome} foi excluido com sucesso!" : "Houve um erro ao excluir o contato."; ?> </small>
     </div>
   </div>
 

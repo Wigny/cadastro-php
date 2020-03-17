@@ -21,14 +21,18 @@ if ($_GET && $_GET["id"]) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atualização de contato</title>
+  <title>Exclusão de contato</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
   <div class="jumbotron">
-    <h1 class="text-center">Atualizar contato</h1>
+    <div class="text-center">
+      <h3>Exclusão de contato</h3>
+      <h2>Deseja excluir o contato abaixo?</h2>
+      <small>A exclusão do contato não poderá ser desfeita</small>
+    </div>
   </div>
 
   <div class="container">
@@ -42,28 +46,28 @@ if ($_GET && $_GET["id"]) {
     <?php endif ?>
 
     <?php if (!isset($erro)) : ?>
-      <form action="./crud/editar.php" method="post">
+      <form action="./crud/excluir.php" method="post">
         <div class="row">
           <div class="col-1">
-            <label for="id">ID</label>
+            <label for="">ID</label>
             <input type="text" class="form-control" name="id" value="<?php echo $registro->id ?>" readonly>
           </div>
           <div class="col">
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" name="nome" value="<?php echo $registro->nome ?>" required>
+            <label for="">Nome</label>
+            <input type="text" class="form-control" name="nome" value="<?php echo $registro->nome ?>" readonly>
           </div>
           <div class="col">
-            <label for="email">E-mail</label>
-            <input type="email" class="form-control" name="email" value="<?php echo $registro->email ?>" required>
+            <label for="">E-mail</label>
+            <input type="email" class="form-control" name="email" value="<?php echo $registro->email ?>" readonly>
           </div>
           <div class="col">
-            <label for="fone">Telefone</label>
-            <input type="text" class="form-control" name="fone" data-mask="(00) 00000-0000" value="<?php echo $registro->fone ?>" required>
+            <label for="">Telefone</label>
+            <input type="text" class="form-control" name="fone" data-mask="(00) 00000-0000" value="<?php echo $registro->fone ?>" readonly>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
-            <button class="btn btn-success btn-block" type="submit">Salvar</button>
+            <button class="btn btn-danger btn-block" type="submit">Excluir</button>
           </div>
         </div>
       </form>
